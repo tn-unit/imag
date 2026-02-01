@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Planer Dnia</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <p class="app__eyebrow">Twoje zadania</p>
+          <h1>Planer Dnia</h1>
+        </div>
+        <div class="app__status" aria-live="polite">
+          <span id="taskCount">0</span>
+          <span class="app__status-label">aktywnych</span>
+        </div>
+      </header>
+
+      <section class="card">
+        <form id="taskForm" class="task-form">
+          <label class="task-form__label" for="taskInput">Dodaj nowe zadanie</label>
+          <div class="task-form__row">
+            <input
+              id="taskInput"
+              name="task"
+              type="text"
+              placeholder="Np. przygotuj plan spotkania"
+              autocomplete="off"
+              required
+            />
+            <button type="submit">Dodaj</button>
+          </div>
+          <p class="task-form__hint">Podpowiedź: kliknij na zadanie, aby je oznaczyć jako zrobione.</p>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="toolbar">
+          <div class="toolbar__group" role="group" aria-label="Filtry">
+            <button class="filter is-active" data-filter="all" type="button">Wszystkie</button>
+            <button class="filter" data-filter="active" type="button">Aktywne</button>
+            <button class="filter" data-filter="done" type="button">Zrobione</button>
+          </div>
+          <button id="clearDone" class="ghost" type="button">Usuń zrobione</button>
+        </div>
+
+        <ul id="taskList" class="task-list" aria-live="polite"></ul>
+        <p id="emptyState" class="empty">Brak zadań. Dodaj pierwsze!</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
